@@ -10,15 +10,20 @@
 #import "NNViewController.h"
 #import <NNMultipleImagePickerController.h>
 #import <NNMediaUploadQueue.h>
+#import "NBULog.h"
 
 @implementation NNViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hoge:) name:NNMediaUploadQueueUploadCompleteNotification object:[NNMediaUploadQueue sharedInstance]];
 }
 
+
+-(void)hoge:(NSNotification*)note{
+    NBULogInfo(@"%@", note);
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];

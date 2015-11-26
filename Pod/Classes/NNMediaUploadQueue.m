@@ -80,6 +80,10 @@ NSString *const NNMediaUploadQueueUploadCompleteNotification = @"NNMediaUploadQu
 
 /// 画像アップロードをキューに追加
 -(void)queueUploadImage:(UIImage*)image{
+    if( !image ){
+        NBULogWarn(@"imageがありません");
+        return;
+    }
     NBULogInfo(@"画像アップロードをキューに追加します image=%@", image);
     [_process_queue addOperationWithBlock:^{
         NSURL* url = [image saveJPEGFileToDocumentDirectoryWithoutCompressWithMetadata:nil];
@@ -100,7 +104,7 @@ NSString *const NNMediaUploadQueueUploadCompleteNotification = @"NNMediaUploadQu
 
 
 /// 画像ファイルをアップロード
--(NSString*)uploadImageFile:(NSURL*)fileURL error:(NSError**)error{
+-(void)uploadImageFile:(NSURL*)fileURL error:(NSError**)error{
     NBULogInfo(@"画像のアップロードを開始します。fileURL=%@", fileURL);
     
     NSAssert( _imageServerUrlString, @"imageServerUrlStringを設定してください" );
@@ -119,21 +123,24 @@ NSString *const NNMediaUploadQueueUploadCompleteNotification = @"NNMediaUploadQu
 //        responseString = @"";
 //    }
     
-    if( error || [responseString hasPrefix:@"https://"] == NO ){
+    NSURL* remoteURL = [NSURL URLWithString:responseString];
+    
+    if( error || [responseString hasPrefix:@"https://"] == NO || !remoteURL ){
         NBULogError(@"画像のアップロードに失敗しました。リトライします");
         [self queueUploadImageFile:fileURL];
-        return nil;
+        return;
     }
     
-    NBULogInfo(@"画像のアップロードが完了しました。responseString=%@", responseString);
+    NBULogInfo(@"画像のアップロードが完了しました。remoteURL=%@", remoteURL);
     [self removeFileNameFromUserDefaults:fileURL];
     
     /// アップロード完了通知
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:NNMediaUploadQueueUploadCompleteNotification object:self userInfo:@{@"fileURL":fileURL}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NNMediaUploadQueueUploadCompleteNotification object:self userInfo:@{
+                                                                                                                                       @"fileURL":fileURL,
+                                                                                                                                       @"remoteURL": remoteURL
+                                                                                                                                       }];
     }];
-    
-    return responseString;
 }
 
 
