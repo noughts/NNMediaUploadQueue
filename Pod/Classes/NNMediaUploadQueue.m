@@ -88,7 +88,7 @@ NSString *const NNMediaUploadQueueUploadCompleteNotification = @"NNMediaUploadQu
 }
 
 
-
+/// 画像ファイルURLをアップロードキューに追加
 -(void)queueUploadImageFile:(NSURL*)fileURL{
     /// アプリが再起動したあとも残りを処理できるように、UserDefaultsにストア
     [self storeFileNameToUserDefaults:fileURL];

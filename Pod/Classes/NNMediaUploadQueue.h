@@ -28,6 +28,8 @@ extern NSString *const NNMediaUploadQueueUploadCompleteNotification;
 /// キューに溜まっているアップロードを再開。アプリ起動時に呼びましょう。
 -(void)resume;
 
+/// 画像ファイルURLをアップロードキューに追加
+-(void)queueUploadImageFile:(NSURL*)fileURL;
 
 /// 画像アップロードをキューに追加
 -(void)queueUploadImage:(UIImage*)image;
