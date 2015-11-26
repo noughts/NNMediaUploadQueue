@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NNMediaUploadQueue"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "hoge"
 
 # This description is used to generate tags and improve search results.
@@ -40,4 +40,5 @@ fuga
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency "AFNetworking"
   s.dependency "NNUtils"
+  s.dependency "NBULog"
 end
