@@ -30,10 +30,13 @@
 
 
 
--(void)imagePickerController:(NNMultipleImagePickerController *)picker didFinishPickingAssets:(NSArray<PHAsset>*)assets{
+-(void)imagePickerController:(NNMultipleImagePickerController *)picker didFinishPickingAssets:(NSArray<PHAsset*>*)assets{
     for (PHAsset* asset in assets) {
         [[NNMediaUploadQueue sharedInstance] queueUploadImageFromAsset:asset targetSize:CGSizeMake(1334, 1334)];
     }
+}
+-(void)imagePickerControllerDidCancel:(NNMultipleImagePickerController *)picker{
+    
 }
 
 

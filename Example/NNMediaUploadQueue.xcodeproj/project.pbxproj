@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2A7288CC31A4EB183C79244F /* NNMediaUploadQueue.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NNMediaUploadQueue.podspec; path = ../NNMediaUploadQueue.podspec; sourceTree = "<group>"; };
+		4DB0BA0E1C076111002B56ED /* NNConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNConstants.h; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* NNMediaUploadQueue_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNMediaUploadQueue_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +138,7 @@
 				6003F5A6195388D20070C39A /* NNViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				4DB0BA0E1C076111002B56ED /* NNConstants.h */,
 			);
 			name = "Example for NNMediaUploadQueue";
 			path = NNMediaUploadQueue;

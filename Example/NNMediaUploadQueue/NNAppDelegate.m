@@ -8,12 +8,14 @@
 
 #import "NNAppDelegate.h"
 #import <NNMediaUploadQueue.h>
+#import "NNConstants.h"
 
 @implementation NNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [NNMediaUploadQueue sharedInstance].imageServerUrlString = IMAGE_SERVER_URL_STRING;
     [[NNMediaUploadQueue sharedInstance] resume];
     
     return YES;
