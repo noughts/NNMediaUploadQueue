@@ -5,6 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'NNMediaUploadQueue_Example', :exclusive => true do
   pod "NNMediaUploadQueue", :path => "../"
   pod "NNMultipleImagePickerController"
+  pod "NBULog"
 end
 
 target 'NNMediaUploadQueue_Tests', :exclusive => true do
