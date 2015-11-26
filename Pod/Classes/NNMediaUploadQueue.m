@@ -28,6 +28,11 @@
     return sharedInstance;
 }
 
++(NSString*)userDefaultsKey{
+    return @"NNMediaUploadQueue_fileNames";
+}
+
+
 
 -(instancetype)init{
     if( self = [super init] ){
@@ -41,6 +46,9 @@
 
 /// キューに溜まっているアップロードを再開。アプリ起動時に呼びましょう。
 -(void)resume{
+    /// ファイルURLリストをUserDefaultsから取得
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    NSArray<NSString*>* array = [[ud arrayForKey:[NNMediaUploadQueue userDefaultsKey]] mutableCopy];
     
 }
 
@@ -63,6 +71,8 @@
         [self queueUploadImageFile:url];
     }];
 }
+
+
 
 
 -(void)queueUploadImageFile:(NSURL*)fileURL{
@@ -101,6 +111,24 @@
     NBULogInfo(@"画像のアップロードが完了しました。responseString=%@", responseString);
     
     return responseString;
+}
+
+
+
+
+
+/// ファイル名をNSUserDefaultsに追加
+-(void)storeFileURLToUserDefaults:(NSURL*)fileURL{
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* array = [[ud arrayForKey:[NNMediaUploadQueue userDefaultsKey]] mutableCopy];
+    if( !array ){
+        array = [NSMutableArray new];
+    }
+    [array addObject:fileURL.lastPathComponent];
+    
+    /// 保存
+    [ud setObject:array forKey:[NNMediaUploadQueue userDefaultsKey]];
+    [ud synchronize];
 }
 
 

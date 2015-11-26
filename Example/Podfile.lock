@@ -41,7 +41,7 @@ PODS:
   - NNProfiler (1.1.1):
     - NBULogStub
   - NNSprite (0.5.1)
-  - NNUtils (1.33.0):
+  - NNUtils (1.33.1):
     - AMPopTip
     - NNProfiler
     - NNSprite
@@ -67,7 +67,7 @@ SPEC CHECKSUMS:
   NNMultipleImagePickerController: 03b842fbcb3a694b53b90b89d47b799565033c33
   NNProfiler: e2abbda27cd623b19848fa21d3c4e24732c9b648
   NNSprite: 5afb965714210a812394b76b20e94fb902d14db3
-  NNUtils: 18d23afb7ed17e6c12916841b91fbbac2d163379
+  NNUtils: 96aa417726b4cbfbbc83976998d91845221302c7
   NSDate-Escort: a01b1298d1ef3a79f6c205ef63a9781c41c8ee78
 
 COCOAPODS: 0.39.0
