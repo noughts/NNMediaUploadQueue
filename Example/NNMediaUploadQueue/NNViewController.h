@@ -7,7 +7,8 @@
 //
 
 @import UIKit;
+#import <NNMultipleImagePickerController.h>
 
-@interface NNViewController : UIViewController
+@interface NNViewController : UIViewController <NNMultipleImagePickerControllerDelegate>
 
 @end

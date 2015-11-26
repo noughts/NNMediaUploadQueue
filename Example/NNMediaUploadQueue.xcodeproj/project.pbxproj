@@ -20,9 +20,9 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		6B69897FBCAB77331656D01E /* Pods_NNMediaUploadQueue_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8C53D73C0EC99BA4338447 /* Pods_NNMediaUploadQueue_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		D16D65162389C71B8EA8C573 /* Pods_NNMediaUploadQueue_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAE255B71D515F9176F5159 /* Pods_NNMediaUploadQueue_Tests.framework */; };
+		E032A66C6A4F31137ED05C41 /* libPods-NNMediaUploadQueue_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A469258737591644CA79A822 /* libPods-NNMediaUploadQueue_Example.a */; };
+		E05C0A2AD574258C49C3FE55 /* libPods-NNMediaUploadQueue_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1678D582CDFD9305DCBDEFE /* libPods-NNMediaUploadQueue_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2A7288CC31A4EB183C79244F /* NNMediaUploadQueue.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NNMediaUploadQueue.podspec; path = ../NNMediaUploadQueue.podspec; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* NNMediaUploadQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = NNMediaUploadQueue.app; path = NNMediaUploadQueue_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* NNMediaUploadQueue_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNMediaUploadQueue_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -50,7 +50,7 @@
 		6003F5A5195388D20070C39A /* NNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* NNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = NNMediaUploadQueue_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* NNMediaUploadQueue_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NNMediaUploadQueue_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -59,12 +59,12 @@
 		6220F1FF12FD36B5867DDDE3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6C1485FA1D2B1A7236ABFB4E /* Pods-NNMediaUploadQueue_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNMediaUploadQueue_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNMediaUploadQueue_Tests/Pods-NNMediaUploadQueue_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A1678D582CDFD9305DCBDEFE /* libPods-NNMediaUploadQueue_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNMediaUploadQueue_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A469258737591644CA79A822 /* libPods-NNMediaUploadQueue_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNMediaUploadQueue_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACACF4490EEAF783CD2FBE0F /* Pods-NNMediaUploadQueue_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNMediaUploadQueue_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNMediaUploadQueue_Example/Pods-NNMediaUploadQueue_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C18F2B228F9B29EAF3FBD32C /* Pods-NNMediaUploadQueue_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNMediaUploadQueue_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNMediaUploadQueue_Tests/Pods-NNMediaUploadQueue_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		CAAE255B71D515F9176F5159 /* Pods_NNMediaUploadQueue_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NNMediaUploadQueue_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF700588B58C1028C95ED25B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F153F578D37D50D76CB831E8 /* Pods-NNMediaUploadQueue_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNMediaUploadQueue_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNMediaUploadQueue_Example/Pods-NNMediaUploadQueue_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FF8C53D73C0EC99BA4338447 /* Pods_NNMediaUploadQueue_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NNMediaUploadQueue_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				6B69897FBCAB77331656D01E /* Pods_NNMediaUploadQueue_Example.framework in Frameworks */,
+				E032A66C6A4F31137ED05C41 /* libPods-NNMediaUploadQueue_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				D16D65162389C71B8EA8C573 /* Pods_NNMediaUploadQueue_Tests.framework in Frameworks */,
+				E05C0A2AD574258C49C3FE55 /* libPods-NNMediaUploadQueue_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +108,8 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* NNMediaUploadQueue.app */,
-				6003F5AE195388D20070C39A /* Tests.xctest */,
+				6003F58A195388D20070C39A /* NNMediaUploadQueue_Example.app */,
+				6003F5AE195388D20070C39A /* NNMediaUploadQueue_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,8 +121,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				FF8C53D73C0EC99BA4338447 /* Pods_NNMediaUploadQueue_Example.framework */,
-				CAAE255B71D515F9176F5159 /* Pods_NNMediaUploadQueue_Tests.framework */,
+				A469258737591644CA79A822 /* libPods-NNMediaUploadQueue_Example.a */,
+				A1678D582CDFD9305DCBDEFE /* libPods-NNMediaUploadQueue_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 			);
 			name = NNMediaUploadQueue_Example;
 			productName = NNMediaUploadQueue;
-			productReference = 6003F58A195388D20070C39A /* NNMediaUploadQueue.app */;
+			productReference = 6003F58A195388D20070C39A /* NNMediaUploadQueue_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* NNMediaUploadQueue_Tests */ = {
@@ -234,7 +234,7 @@
 			);
 			name = NNMediaUploadQueue_Tests;
 			productName = NNMediaUploadQueueTests;
-			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* NNMediaUploadQueue_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -466,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -499,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
