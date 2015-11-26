@@ -12,6 +12,8 @@
 #import "AFNetworking.h"
 #import "PHAsset+NNUtils.h"
 #import "NBULogStub.h"
+#import "NSURL+NNUtils.h"
+
 
 @implementation NNMediaUploadQueue{
     NSOperationQueue* _process_queue;
@@ -49,7 +51,16 @@
     /// ファイルURLリストをUserDefaultsから取得
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     NSArray<NSString*>* array = [[ud arrayForKey:[NNMediaUploadQueue userDefaultsKey]] mutableCopy];
+    if( array.count == 0 ){
+        NBULogInfo(@"アップロード待ちのメディアはありません");
+        return;
+    }
     
+    NBULogInfo(@"アップロード待ちのメディアが%@件あります。", @(array.count));
+    for (NSString* fileName in array) {
+        NSURL* fileURL = [NSURL documentFileURLFromFileName:fileName];
+        [self queueUploadImageFile:fileURL];
+    }
 }
 
 
@@ -74,8 +85,10 @@
 
 
 
-
 -(void)queueUploadImageFile:(NSURL*)fileURL{
+    /// アプリが再起動したあとも残りを処理できるように、UserDefaultsにストア
+    [self storeFileNameToUserDefaults:fileURL];
+    
     [_network_queue addOperationWithBlock:^{
         [self uploadImageFile:fileURL error:nil];
     }];
@@ -109,6 +122,7 @@
     }
     
     NBULogInfo(@"画像のアップロードが完了しました。responseString=%@", responseString);
+    [self removeFileNameFromUserDefaults:fileURL];
     
     return responseString;
 }
@@ -118,19 +132,36 @@
 
 
 /// ファイル名をNSUserDefaultsに追加
--(void)storeFileURLToUserDefaults:(NSURL*)fileURL{
+-(void)storeFileNameToUserDefaults:(NSURL*)fileURL{
+    NSString* fileName = fileURL.lastPathComponent;
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     NSMutableArray* array = [[ud arrayForKey:[NNMediaUploadQueue userDefaultsKey]] mutableCopy];
     if( !array ){
         array = [NSMutableArray new];
     }
-    [array addObject:fileURL.lastPathComponent];
-    
-    /// 保存
+
+    /// 重複チェック
+    if( [array containsObject:fileName] ){
+        NBULogInfo(@"すでにこのファイル名は登録されています。fileName=%@", fileName);
+    } else {
+        [array addObject:fileName];
+        /// 永続化
+        [ud setObject:array forKey:[NNMediaUploadQueue userDefaultsKey]];
+        [ud synchronize];
+    }
+}
+
+
+/// UserDefaultsからファイル名を削除。アップロード完了時に呼びましょう。
+-(void)removeFileNameFromUserDefaults:(NSURL*)fileURL{
+    NSString* fileName = fileURL.lastPathComponent;
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* array = [[ud arrayForKey:[NNMediaUploadQueue userDefaultsKey]] mutableCopy];
+    [array removeObject:fileName];
+    /// 永続化
     [ud setObject:array forKey:[NNMediaUploadQueue userDefaultsKey]];
     [ud synchronize];
 }
-
 
 
 
