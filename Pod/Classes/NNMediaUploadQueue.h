@@ -9,6 +9,15 @@
 @import Photos;
 #import <Foundation/Foundation.h>
 
+
+
+extern NSString *const NNMediaUploadQueueUploadCompleteNotification;
+
+
+
+
+
+
 @interface NNMediaUploadQueue : NSObject
 
 @property NSString* imageServerUrlString;

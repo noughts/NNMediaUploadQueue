@@ -15,6 +15,10 @@
 #import "NSURL+NNUtils.h"
 
 
+NSString *const NNMediaUploadQueueUploadCompleteNotification = @"NNMediaUploadQueueUploadCompleteNotification";
+
+
+
 @implementation NNMediaUploadQueue{
     NSOperationQueue* _process_queue;
     NSOperationQueue* _network_queue;
@@ -123,6 +127,11 @@
     
     NBULogInfo(@"画像のアップロードが完了しました。responseString=%@", responseString);
     [self removeFileNameFromUserDefaults:fileURL];
+    
+    /// アップロード完了通知
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:NNMediaUploadQueueUploadCompleteNotification object:self userInfo:@{@"fileURL":fileURL}];
+    }];
     
     return responseString;
 }
