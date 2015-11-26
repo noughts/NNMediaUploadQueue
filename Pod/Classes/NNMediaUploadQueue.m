@@ -60,12 +60,16 @@
     NBULogInfo(@"画像アップロードをキューに追加します image=%@", image);
     [_process_queue addOperationWithBlock:^{
         NSURL* url = [image saveJPEGFileToDocumentDirectoryWithoutCompressWithMetadata:nil];
-        [_network_queue addOperationWithBlock:^{
-            [self uploadImageFile:url error:nil];
-        }];
+        [self queueUploadImageFile:url];
     }];
 }
 
+
+-(void)queueUploadImageFile:(NSURL*)fileURL{
+    [_network_queue addOperationWithBlock:^{
+        [self uploadImageFile:fileURL error:nil];
+    }];
+}
 
 
 /// 画像ファイルをアップロード
@@ -82,7 +86,17 @@
     } error:nil];
     NSData *contents = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&_error];
     NSString *responseString = [[NSString alloc] initWithData:contents encoding:NSUTF8StringEncoding];
-    //	responseString = @"<html></html>";// デバッグ用
+    
+//    if( arc4random()%100 < 50 ){
+//        NBULogWarn(@"*************** デバッグのために、アップロード失敗をモックします");
+//        responseString = @"";
+//    }
+    
+    if( error || [responseString hasPrefix:@"https://"] == NO ){
+        NBULogError(@"画像のアップロードに失敗しました。リトライします");
+        [self queueUploadImageFile:fileURL];
+        return nil;
+    }
     
     NBULogInfo(@"画像のアップロードが完了しました。responseString=%@", responseString);
     
